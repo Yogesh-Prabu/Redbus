@@ -1,9 +1,9 @@
-REDBUS DATA SCRAPING USING SELENIUM (PYTHON) AND DYNAMIC FILTERING USING STREAMLIT
+#REDBUS DATA SCRAPING USING SELENIUM (PYTHON) AND DYNAMIC FILTERING USING STREAMLIT
 
-Project Overview
+##Project Overview
 This project automates the extraction, cleaning, and analysis of bus travel data from Redbus. It combines web scraping with Selenium, data processing with pandas, database management with MySQL, and visualization through Streamlit to provide a comprehensive tool for analyzing bus travel information.
 
-Project Structure:
+##Project Structure:
 The repository includes the following files:
 bus_routes.ipynb: Jupyter Notebook for scraping initial bus route data.
 busdetails.ipynb: Jupyter Notebook for extracting detailed bus information.
@@ -11,7 +11,7 @@ data_cleaning.ipynb: Jupyter Notebook for cleaning and preprocessing the scraped
 store_data_to_sql.py: Python script for storing the cleaned data in a MySQL database.
 streamlit.py: Python script for creating an interactive dashboard with Streamlit.
 
-Prerequisites
+##Prerequisites
 Ensure you have the following installed:
 
 Python 3.x
@@ -19,10 +19,9 @@ MySQL server
 Necessary Python libraries: selenium, pandas, mysql-connector-python, sqlalchemy, streamlit, Pillow
 Install the required Python libraries using pip:
 
-bash
-Copy code
-pip install selenium pandas mysql-connector-python sqlalchemy streamlit pillow
-Setup and Installation
+```pip install selenium pandas mysql-connector-python sqlalchemy streamlit pillow```
+
+##Setup and Installation
 1. Data Scraping
 Run bus_routes.ipynb:
 
@@ -45,10 +44,8 @@ Run streamlit.py:
 
 Launch an interactive dashboard to explore and filter bus data.
 Start the Streamlit app using the following command:
-bash
-Copy code
-streamlit run streamlit.py
-Detailed Explanation
+```streamlit run streamlit.py```
+##Detailed Explanation
 Data Scraping
 bus_routes.ipynb: Gathers initial bus route data from Redbus, focusing on route and link information.
 busdetails.ipynb: Extracts comprehensive details about each bus, including names, types, timings, and prices.
