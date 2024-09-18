@@ -25,7 +25,7 @@ Ensure you have the following installed:
 Install the required Python libraries using pip:
 
 ```bash
-pip install selenium pandas mysql-connector-python sqlalchemy streamlit pillow
+pip install selenium pandas mysql-connector-python sqlalchemy streamlit pillow```
 
 Setup and Installation
 1. Data Scraping
