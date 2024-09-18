@@ -69,10 +69,6 @@ Create the database by running the store_data_to_sql.py script:
 
 2. **Visit** [http://localhost:8501](http://localhost:8501) in your web browser to access the interactive dashboard.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
 ## Acknowledgments
 
 - **Selenium:** For web scraping automation.
