@@ -23,11 +23,10 @@ Ensure you have the following installed:
 - Necessary Python libraries: `selenium`, `pandas`, `mysql-connector-python`, `sqlalchemy`, `streamlit`, `Pillow`
 
 Install the required Python libraries using pip:
+    ```pip install selenium pandas mysql-connector-python sqlalchemy streamlit pillow```
 
-```bash
-pip install selenium pandas mysql-connector-python sqlalchemy streamlit pillow```
 
-Setup and Installation
+#Setup and Installation
 1. Data Scraping
 Run bus_routes.ipynb:
 
@@ -50,21 +49,37 @@ Run streamlit.py:
 
 Launch an interactive dashboard to explore and filter bus data.
 Start the Streamlit app using the following command:
-bash
-Copy code
-streamlit run streamlit.py
-Detailed Explanation
-Data Scraping
-bus_routes.ipynb: Gathers initial bus route data from Redbus, focusing on route and link information.
-busdetails.ipynb: Extracts comprehensive details about each bus, including names, types, timings, and prices.
-Data Cleaning
-data_cleaning.ipynb: Cleans the dataset by addressing missing values, removing duplicates, and formatting columns for consistency.
-Database Storage
-store_data_to_sql.py: Connects to a MySQL database, creates the necessary database and table, and inserts the cleaned data into the table. This script also optimizes performance by temporarily disabling indexes.
-Interactive Dashboard
-streamlit.py: Provides an interactive web interface for data exploration. Users can filter data based on various criteria such as state, bus name, price range, and star rating.
-Contribution
+    ```streamlit run streamlit.py```
+
+## Detailed Explanation
+
+### Data Scraping
+
+- **`bus_routes.ipynb`**: 
+  - Gathers initial bus route data from Redbus, focusing on route and link information.
+  
+- **`busdetails.ipynb`**: 
+  - Extracts comprehensive details about each bus, including names, types, timings, and prices.
+
+### Data Cleaning
+
+- **`data_cleaning.ipynb`**: 
+  - Cleans the dataset by addressing missing values, removing duplicates, and formatting columns for consistency.
+
+### Database Storage
+
+- **`store_data_to_sql.py`**: 
+  - Connects to a MySQL database, creates the necessary database and table, and inserts the cleaned data into the table. This script also optimizes performance by temporarily disabling indexes.
+
+### Interactive Dashboard
+
+- **`streamlit.py`**: 
+  - Provides an interactive web interface for data exploration. Users can filter data based on various criteria such as state, bus name, price range, and star rating.
+
+## Contribution
+
 Contributions are welcome! If you have suggestions or improvements, please fork the repository and submit a pull request.
 
-Contact
-For further questions or feedback, please contact [Your Name] at [your email or contact information].
+## Contact
+
+For further questions or feedback, please contact [Yogesh R] at [yogeshprabu11@gmail.com].
