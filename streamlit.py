@@ -225,7 +225,11 @@ if page == "Data Dashboard":
     states = data['state'].unique()
     selected_state = st.sidebar.selectbox("Select State", options=["All"] + list(states), key='state_filter')
 
-    # Bus Name filter
+    # Filter data based on selected state
+    if selected_state != "All":
+        data = data[data['state'] == selected_state]
+        
+    # Update Bus Name filter options based on the filtered data
     bus_names = data['bus_name'].unique()
     selected_bus_name = st.sidebar.selectbox("Select Bus Name", options=["All"] + list(bus_names), key='bus_filter')
 
