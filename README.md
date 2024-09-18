@@ -22,3 +22,18 @@ This project involves scraping bus travel data from Redbus, cleaning the data, s
    pip install pandas selenium mysql-connector-python sqlalchemy streamlit pillow
 
 4. ChromeDriver: Download and install ChromeDriver compatible with your Chrome version.
+
+
+## Setting Up
+
+### Clone the Repository
+
+```bash
+git clone <repository-url>
+cd <repository-directory>
+
+Prepare the Database
+Ensure MySQL Server is running.
+Update store_data_to_sql.py with your database credentials.
+Create the database by running the store_data_to_sql.py script:
+```python store_data_to_sql.py```
