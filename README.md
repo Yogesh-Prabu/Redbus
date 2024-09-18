@@ -26,30 +26,36 @@ Install the required Python libraries using pip:
     ```pip install selenium pandas mysql-connector-python sqlalchemy streamlit pillow```
 
 
-#Setup and Installation
-1. Data Scraping
-Run bus_routes.ipynb:
+## Setup and Installation
 
-This notebook scrapes basic bus route data, including state names, routes, and links to detailed bus information.
-Run busdetails.ipynb:
+### 1. Data Scraping
 
-This notebook scrapes detailed information about each bus from the links obtained in the previous step.
-2. Data Cleaning
-Run data_cleaning.ipynb:
-This notebook processes the raw data to handle missing values, remove duplicates, and ensure data consistency.
-3. Store Data
-Configure MySQL Database:
+- **Run `bus_routes.ipynb`**:
+  - This notebook scrapes basic bus route data, including state names, routes, and links to detailed bus information.
+  
+- **Run `busdetails.ipynb`**:
+  - This notebook scrapes detailed information about each bus from the links obtained in the previous step.
 
-Ensure MySQL server is running and accessible. Adjust database credentials in store_data_to_sql.py as needed.
-Run store_data_to_sql.py:
+### 2. Data Cleaning
 
-This script creates the database and table, and inserts the cleaned data into the MySQL database. It also optimizes performance by temporarily disabling indexes.
-4. Data Visualization
-Run streamlit.py:
+- **Run `data_cleaning.ipynb`**:
+  - This notebook processes the raw data to handle missing values, remove duplicates, and ensure data consistency.
 
-Launch an interactive dashboard to explore and filter bus data.
-Start the Streamlit app using the following command:
-    ```streamlit run streamlit.py```
+### 3. Store Data
+
+- **Configure MySQL Database**:
+  - Ensure MySQL server is running and accessible. Adjust database credentials in `store_data_to_sql.py` as needed.
+
+- **Run `store_data_to_sql.py`**:
+  - This script creates the database and table, and inserts the cleaned data into the MySQL database. It also optimizes performance by temporarily disabling indexes.
+
+### 4. Data Visualization
+
+- **Run `streamlit.py`**:
+  - Launch an interactive dashboard to explore and filter bus data. Start the Streamlit app using the following command:
+  
+  ```bash
+  streamlit run streamlit.py
 
 ## Detailed Explanation
 
