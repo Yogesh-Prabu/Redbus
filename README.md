@@ -19,7 +19,7 @@ This project involves scraping bus travel data from Redbus, cleaning the data, s
 3. **Required Python Libraries**: Install the required libraries using `pip`.
 
    ```bash
-   pip install pandas selenium mysql-connector-python sqlalchemy streamlit pillow
+   pip install pandas selenium mysql-connector-python sqlalchemy streamlit
 
 4. ChromeDriver: Download and install ChromeDriver compatible with your Chrome version.
 
