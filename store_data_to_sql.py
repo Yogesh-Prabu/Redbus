@@ -1,7 +1,7 @@
 import mysql.connector
 import pandas as pd
 
-# GLOBAL CONSTANTS
+# CONSTANTS
 database_name = 'project_redbus'
 table_name = 'bus_routes'
 csv_path = '03_cleaned_data.csv'
@@ -68,7 +68,7 @@ try:
     )
     if db.is_connected():
         print("Database connected successfully!")
-        cursor = db.cursor()
+        cursor = db.cursor(buffered=True)
 
         # Create database
         cursor.execute(create_db_query)
@@ -88,6 +88,8 @@ try:
 
         # Read data in chunks and insert into table
         chunk_data = read_data_in_chunks(csv_path)
+
+
         for chunk in chunk_data:
             data_tuple = [tuple(row) for row in chunk.values]
             insert_data_to_sql(cursor, insert_data_into_table_query, data_tuple)
