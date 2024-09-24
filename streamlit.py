@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from sqlalchemy import create_engine
 
-# GLOBAL CONSTANTS
+# Variables
 database_name = 'project_redbus'
 table_name = 'bus_routes'
 
@@ -17,9 +17,9 @@ def load_data(engine):
     query = f"SELECT * FROM {table_name}"
     df = pd.read_sql(query, engine)
     
-    # Ensure time columns are formatted as strings
-    df['departing_time'] = df['departing_time'].astype(str)
-    df['reaching_time'] = df['reaching_time'].astype(str)
+    # Convert timedelta to hours and minutes
+    df['departing_time'] = df['departing_time'].apply(lambda x: f"{x.components.hours:02}:{x.components.minutes:02}")
+    df['reaching_time'] = df['reaching_time'].apply(lambda x: f"{x.components.hours:02}:{x.components.minutes:02}")
     
     return df
 
@@ -77,23 +77,27 @@ if page == "Data Dashboard":
     # Sidebar for filters
     st.sidebar.header("🔍 Filters")
 
-    # State filter
+    # State name dropdown
     states = data['state'].unique()
     selected_state = st.sidebar.selectbox("Select State", options=["All"] + list(states))
 
-    # Filter data based on selected state
-    if selected_state != "All":
-        data = data[data['state'] == selected_state]
-        
-    # Bus Name filter
+    # Bus Name dropdown
     bus_names = data['bus_name'].unique()
     selected_bus_name = st.sidebar.selectbox("Select Bus Name", options=["All"] + list(bus_names))
 
-    # Price filter
+    # Route Name filter, dependent on the selected state
+    if selected_state == "All":
+        route_names = data['route_name'].unique()
+    else:
+        route_names = data[data['state'] == selected_state]['route_name'].unique()
+        
+    selected_route_name = st.sidebar.selectbox("Select Route Name", options=["All"] + list(route_names))
+
+    # Price slider
     min_price, max_price = float(data['price'].min()), float(data['price'].max())
     price_range = st.sidebar.slider("Select Price Range", min_value=min_price, max_value=max_price, value=(min_price, max_price))
 
-    # Rating filter
+    # Rating slider
     min_rating, max_rating = float(data['star_rating'].min()), float(data['star_rating'].max())
     rating_range = st.sidebar.slider("Select Star Rating Range", min_value=min_rating, max_value=max_rating, value=(min_rating, max_rating))
 
@@ -102,6 +106,9 @@ if page == "Data Dashboard":
         data = data[data['state'] == selected_state]
     if selected_bus_name != "All":
         data = data[data['bus_name'] == selected_bus_name]
+    if selected_route_name != "All":
+        data = data[data['route_name'] == selected_route_name]
+        
     data = data[(data['price'] >= price_range[0]) & (data['price'] <= price_range[1])]
     data = data[(data['star_rating'] >= rating_range[0]) & (data['star_rating'] <= rating_range[1])]
 
