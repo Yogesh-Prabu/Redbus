@@ -28,7 +28,7 @@ def render_sidebar():
     st.sidebar.title("Navigation")
     return st.sidebar.radio("Go to", ["Home", "Data Dashboard"])
 
-# Home page content
+#---------------------------------------RENDERING HOMEPAGE CONTENT------------------------------------------------------------
 def render_home_page():
     st.title("Exploring Redbus Data with Advanced Scraping and Filtering")
     
@@ -63,6 +63,8 @@ def render_home_page():
         - Python Programming for Data Analysis
     """, unsafe_allow_html=True)
 
+
+#-----------------------------------RENDERING DASHBOARD CONTENT---------------------------------------------------------
 # Data Dashboard page content
 def render_data_dashboard(engine):
     st.title("🚌 Redbus Data Dashboard")
@@ -121,7 +123,8 @@ def render_data_dashboard(engine):
         mime='text/csv'
     )
 
-# Main function
+
+# MAIN FUNCTION
 def main():
     page = render_sidebar()
     
